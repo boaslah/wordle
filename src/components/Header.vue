@@ -27,13 +27,15 @@ export default  {
 <style scoped>
 h1{
     text-align: center;
+    font-family: "Patua One"
 }
 
 .header{
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    border-bottom: solid 2px rgb(155, 153, 153);
-    margin: -1% 0% 0% -1%;
+    border-bottom: solid 1px rgb(211, 211, 211);
+    margin: -1% 0% 5% -1%;
+    max-height: 70px;
 }
 
 </style>
