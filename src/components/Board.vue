@@ -67,7 +67,7 @@
                     <div class="keys">O</div>
                     <div class="keys">P</div>
                 </div>
-                <div class="keyboard-row">
+                <div class="keyboard-row2">
                     <div></div>
                     <div class="keys">A</div>
                     <div class="keys">S</div>
@@ -79,8 +79,8 @@
                     <div class="keys">K</div>
                     <div class="keys">L</div>
                 </div>
-                <div class="keyboard-row">
-                    <div class="keys enter">Enter</div>
+                <div class="keyboard-row3">
+                    <div class="key">Enter</div>
                     <div class="keys">Z</div>
                     <div class="keys">X</div>
                     <div class="keys">C</div>
@@ -88,7 +88,7 @@
                     <div class="keys">B</div>
                     <div class="keys">N</div>
                     <div class="keys">M</div>
-                    <div class="keys">X</div>
+                    <div class="key"><i class="fa fa-delete-left"></i></div>
                 </div>
                 
             </div>
@@ -109,15 +109,14 @@ export default  {
 
 <style scoped>
 
-.enter{
-    /* padding: 35% 50% 35% 50% !important; */
-    text-align: center !important;
-}
 
+.keys:hover{
+    cursor: pointer;
+}
 .keyboard{
     display: grid;
-    grid-template-columns: 33% 33% 33%;
-    margin-top: 4%;
+    grid-template-columns: 34% 30% 39%;
+    margin-top: 3%;
 }
 .keyboard-col2{
     display: grid;
@@ -132,16 +131,30 @@ export default  {
     font-size: 1.25em;
     font-weight: bold;
 }
+.keyboard-row3{
+    display: grid;
+    grid-template-columns: 15% 10% 10% 10% 10% 10% 10% 10% 15%;
+    column-gap: 1%;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.keyboard-row2{
+    display: grid;
+    grid-template-columns: 5% 10% 10% 10% 10% 10% 10% 10% 10% 10% 5%;
+    column-gap: 1%;
+    font-size: 1.25em;
+    font-weight: bold;
+}
 
 .display-col2-row{
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
-    column-gap: 6%;
+    column-gap: 5%;
 }
 .display-col2{
     display: grid;
     grid-template-rows: 16% 16% 16% 16% 16% 16%;
-    row-gap: 4%;
+    row-gap: 3%;
 }
 .board{
     display: grid;
@@ -149,12 +162,21 @@ export default  {
     font-family: "Patua One"
 }
 .keys{
-    padding: 35% 10% 35% 10%;
+    padding: 35%;
     background-color: #d3d6da;
     font-family: "Patua One";
     color: black;
     border-radius: 7%;
     text-align: center;
+}
+.key{
+    /* padding: 15%; */
+    background-color: #d3d6da;
+    font-family: "Patua One";
+    color: black;
+    border-radius: 7%;
+    text-align: center;
+    padding-top: 25%;
 }
 
 .display{
@@ -165,7 +187,7 @@ export default  {
 
 .box{
     border: solid 2px rgb(211, 211, 211);
-    padding: 50%;
+    padding: 52%;
 }
 
 </style>
