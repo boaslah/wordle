@@ -24,7 +24,7 @@ export default  {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 h1{
     text-align: center;
     font-family: "Patua One"

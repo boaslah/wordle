@@ -6,7 +6,7 @@
             <div class="display-col1"></div>
             <div class="display-col2">
                 <div class="display-col2-row">
-                    <div class="box"></div>
+                    <div class="box" v-html="letter"></div>
                     <div class="box"></div>
                     <div class="box"></div>
                     <div class="box"></div>
@@ -56,39 +56,39 @@
             <div></div>
             <div class="keyboard-col2" >
                 <div class="keyboard-row">
-                    <div class="keys">Q</div>
-                    <div class="keys">W</div>
-                    <div class="keys">E</div>
-                    <div class="keys">R</div>
-                    <div class="keys">T</div>
-                    <div class="keys">Y</div>
-                    <div class="keys">U</div>
-                    <div class="keys">I</div>
-                    <div class="keys">O</div>
-                    <div class="keys">P</div>
+                    <div class="keys" @click="display($event)">Q</div>
+                    <div class="keys" @click="display($event)">W</div>
+                    <div class="keys" @click="display($event)">E</div>
+                    <div class="keys" @click="display($event)">R</div>
+                    <div class="keys" @click="display($event)">T</div>
+                    <div class="keys" @click="display($event)">Y</div>
+                    <div class="keys" @click="display($event)">U</div>
+                    <div class="keys" @click="display($event)">I</div>
+                    <div class="keys" @click="display($event)">O</div>
+                    <div class="keys" @click="display($event)">P</div>
                 </div>
                 <div class="keyboard-row2">
                     <div></div>
-                    <div class="keys">A</div>
-                    <div class="keys">S</div>
-                    <div class="keys">D</div>
-                    <div class="keys">F</div>
-                    <div class="keys">G</div>
-                    <div class="keys">H</div>
-                    <div class="keys">J</div>
-                    <div class="keys">K</div>
-                    <div class="keys">L</div>
+                    <div class="keys" @click="display($event)">A</div>
+                    <div class="keys" @click="display($event)">S</div>
+                    <div class="keys" @click="display($event)">D</div>
+                    <div class="keys" @click="display($event)">F</div>
+                    <div class="keys" @click="display($event)">G</div>
+                    <div class="keys" @click="display($event)">H</div>
+                    <div class="keys" @click="display($event)">J</div>
+                    <div class="keys" @click="display($event)">K</div>
+                    <div class="keys" @click="display($event)">L</div>
                 </div>
                 <div class="keyboard-row3">
-                    <div class="key">Enter</div>
-                    <div class="keys">Z</div>
-                    <div class="keys">X</div>
-                    <div class="keys">C</div>
-                    <div class="keys">V</div>
-                    <div class="keys">B</div>
-                    <div class="keys">N</div>
-                    <div class="keys">M</div>
-                    <div class="key"><i class="fa fa-delete-left"></i></div>
+                    <div class="key" @click="check()">Enter</div>
+                    <div class="keys" @click="display($event)">Z</div>
+                    <div class="keys" @click="display($event)">X</div>
+                    <div class="keys" @click="display($event)">C</div>
+                    <div class="keys" @click="display($event)">V</div>
+                    <div class="keys" @click="display($event)">B</div>
+                    <div class="keys" @click="display($event)">N</div>
+                    <div class="keys" @click="display($event)">M</div>
+                    <div class="key" @click="clear()"><i class="fa fa-delete-left"></i></div>
                 </div>
                 
             </div>
@@ -101,13 +101,24 @@
 
 <script>
 
+import { ref } from 'vue'
+
+let letter=ref("");
 
 export default  {
-    name: "Board"
+    name: "Board",
+    components: {question
+    },
+    methods:{
+        display(event){question
+            letter.value = event.target.innerHTML
+        }
+    },
+    // data:{}
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 
 .keys:hover{
@@ -115,8 +126,9 @@ export default  {
 }
 .keyboard{
     display: grid;
-    grid-template-columns: 34% 30% 39%;
+    grid-template-columns: 34% 30% 35%;
     margin-top: 3%;
+    width: 100%;
 }
 .keyboard-col2{
     display: grid;
@@ -129,21 +141,19 @@ export default  {
     grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
     column-gap: 1%;
     font-size: 1.25em;
-    font-weight: bold;
 }
 .keyboard-row3{
     display: grid;
     grid-template-columns: 15% 10% 10% 10% 10% 10% 10% 10% 15%;
     column-gap: 1%;
     font-size: 1.25em;
-    font-weight: bold;
 }
 .keyboard-row2{
     display: grid;
     grid-template-columns: 5% 10% 10% 10% 10% 10% 10% 10% 10% 10% 5%;
     column-gap: 1%;
     font-size: 1.25em;
-    font-weight: bold;
+    width: 100%;
 }
 
 .display-col2-row{
@@ -170,7 +180,6 @@ export default  {
     text-align: center;
 }
 .key{
-    /* padding: 15%; */
     background-color: #d3d6da;
     font-family: "Patua One";
     color: black;
@@ -188,6 +197,48 @@ export default  {
 .box{
     border: solid 2px rgb(211, 211, 211);
     padding: 52%;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .keyboard{
+        display: grid;
+        grid-template-columns: 0% 90% 0%;
+        margin-top: 4%;
+        width: 100%;
+    }
+
+    .display{
+        display: grid;
+        grid-template-columns: 25% 50% 25%;
+        margin-top: -4%;
+        color: gray
+    }
+
+    .box{
+        border: solid 2px rgb(211, 211, 211);
+        padding: 50%;
+    }
+}
+
+@media only screen and (max-width: 1230px) {
+    .keyboard{
+        display: grid;
+        grid-template-columns: 30% 40% 30%;
+        margin-top: 4%;
+        width: 100%;
+    }
+
+    .display{
+        display: grid;
+        grid-template-columns: 40% 20% 40%;
+        margin-top: -4%;
+    }
+
+    .box{
+        border: solid 2px rgb(211, 211, 211);
+        padding: 50%;
+    }
 }
 
 </style>
